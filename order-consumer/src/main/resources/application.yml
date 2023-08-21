@@ -1,0 +1,16 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: order-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.80.3:8848
+        username: nacos
+        password: nacos
+dubbo:
+  protocol:
+    name: order-consumer-dubbo
+  registry:
+    address: nacos://192.168.80.3:8848

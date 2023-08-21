@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: warehouse-service #微服务id
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.80.3:8848
+        username: nacos
+        password: nacos
+
+server:
+  port: 80
+
+#dubbo与nacos配置
+dubbo:
+  application:
+    name: warehouse-dubbo #provider在nacos中的应用id
+  registry: #provider与nacos通信地址，与spring.cloud.nacos地址一致
+    address: nacos://192.168.80.3:8848
+  protocol:
+    name: dubbo #通信协议名称
+    port: 20880 #配置通信端口，默认20880
+  scan:
+    base-packages: com.demo.warehouseservice.dubbo
